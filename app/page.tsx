@@ -380,11 +380,21 @@ export default function PipOSChampion() {
           </button>
           <button
             onClick={() => { sound.playPop(); setIsNight(!isNight); }}
-            className="p-1 rounded bg-[#fff8f1] border-2 border-[#5c4033] text-[#5c4033] shadow-[2px_2px_0px_#5c4033] active:translate-y-0.5"
-            aria-label="Toggle Night Mode"
-          >
-            {isNight ? <Sun size={14} /> : <Moon size={14} />}
-          </button>
+            className={`px-2 py-1 rounded-lg border-2 border-[#5c4033] shadow-[2px_2px_0px_#5c4033] active:translate-y-0.5 flex items-center gap-1.5 transition-all ${
+            isNight ? 'bg-[#3b2447] text-[#ffd166]' : 'bg-[#fff8f1] text-[#5c4033]'
+            }`}
+              title="Click Pip's Dream Nightlight Lantern to toggle Day/Night"
+            >
+          <img 
+        src="https://hax.baby/baby/assets/pip_nightlight.png" 
+        alt="Nightlight Lantern" 
+        className="w-4 h-4 object-contain"
+        onError={(e) => {
+        e.currentTarget.style.display = 'none';
+        }}
+        />
+        <span className="text-[11px] font-mono font-bold">{isNight ? '🌙 Night' : '☀️ Day'}</span>
+        </button>
           <button
             onClick={toggleMute}
             className="p-1 rounded bg-[#fff8f1] border-2 border-[#5c4033] text-[#5c4033] shadow-[2px_2px_0px_#5c4033] active:translate-y-0.5"
